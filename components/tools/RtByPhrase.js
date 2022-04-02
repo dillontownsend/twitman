@@ -26,7 +26,7 @@ export default function Example() {
         } else {
             setEmpty(false)
             const res = await fetch(
-                `${process.env.API_URL}/api/twitter/RtByPhrase`,
+                `/api/twitter/RtByPhrase`,
                 {
                     method: 'POST',
                     headers: {

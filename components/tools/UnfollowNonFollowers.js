@@ -18,7 +18,7 @@ export default function Example() {
 
     const twitFunction = async () => {
         const res = await fetch(
-            `${process.env.API_URL}/api/twitter/UnfollowNonFollowers`,
+            `/api/twitter/UnfollowNonFollowers`,
             {
                 method: 'POST',
                 headers: {
