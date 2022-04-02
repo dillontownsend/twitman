@@ -24,7 +24,7 @@ export default function Example() {
         } else {
             setEmpty(false)
             const res = await fetch(
-                'http://localhost:3000/api/twitter/FFofAUser',
+                `${process.env.API_URL}/api/twitter/FFofAUser`,
                 {
                     method: 'POST',
                     headers: {

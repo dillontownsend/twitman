@@ -18,7 +18,7 @@ export default function Example() {
 
     const twitFunction = async () => {
         const res = await fetch(
-            'http://localhost:3000/api/twitter/MuteAllUsers',
+            `${process.env.API_URL}/api/twitter/MuteAllUsers`,
             {
                 method: 'POST',
                 headers: {
