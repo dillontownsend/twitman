@@ -47,7 +47,7 @@ const MenuHeader = () => {
                     <h3 className="md:hidden text-md font-bold mb-3">
                         Clicking on any of the tool cards below will open the
                         options page for that tool. From there, you can set
-                        parameters for some of the tools and execute them.
+                        parameters for some of the tools and execute them.{' '}
                         <span className="text-red-500">
                             Abusing these tools can get you banned from Twitter
                         </span>
