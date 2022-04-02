@@ -26,7 +26,7 @@ export default function Example() {
         } else {
             setEmpty(false)
             const res = await fetch(
-                `${process.env.API_URL}/api/twitter/LikeByPhrase`,
+                `/api/twitter/LikeByPhrase`,
                 {
                     method: 'POST',
                     headers: {
