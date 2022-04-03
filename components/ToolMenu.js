@@ -25,51 +25,51 @@ import UnmuteAllUsers from '../components/tools/UnmuteAllUsers'
 const ToolMenu = () => {
     const toolInfos = [
         {
-            title: 'Follow Users by Phrase',
+            name: 'Follow Users by Phrase',
             description:
                 'Follow any users that tweet something with a specific phrase or hashtag. You can choose how many users you want to follow with this tool.',
             icon: SpeakerphoneIcon,
         },
         {
-            title: 'Follow My Followers',
+            name: 'Follow My Followers',
             description:
                 'Follow any users that have followed you that you do not already follow.',
             icon: UserAddIcon,
         },
         {
-            title: 'Follow Followers of a User',
+            name: 'Follow Followers of a User',
             description: 'Follow all users that are following a specific user.',
             icon: UserIcon,
         },
         {
-            title: 'Like Tweets by Phrase',
+            name: 'Like Tweets by Phrase',
             description:
                 'Like tweets that include a specific phrasse. You can choose how many tweets you want to like with this tool.',
             icon: HeartIcon,
         },
         {
-            title: 'Retweet Tweets by Phrase',
+            name: 'Retweet Tweets by Phrase',
             description:
                 'Retweet tweets that include a specific phrasse. You can choose how many tweets you want to retweet with this tool.',
             icon: RefreshIcon,
         },
         {
-            title: 'Unfollow Non-Followers',
+            name: 'Unfollow Non-Followers',
             description: 'Unfollow all users that do not follow you back.',
             icon: UserRemoveIcon,
         },
         {
-            title: 'Unfollow All Users',
+            name: 'Unfollow All Users',
             description: 'Unfollow all users that you are currently following.',
             icon: TrashIcon,
         },
         {
-            title: 'Mute All Users',
+            name: 'Mute All Users',
             description: 'Mute all users that you are currently following.',
             icon: VolumeOffIcon,
         },
         {
-            title: 'Unmute All Users',
+            name: 'Unmute All Users',
             description: 'Unmute all users that you are currently following.',
             icon: VolumeUpIcon,
         },
