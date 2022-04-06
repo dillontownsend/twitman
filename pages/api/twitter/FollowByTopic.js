@@ -25,7 +25,7 @@ export default async (req, res) => {
                 lang: 'en',
             })
             console.log(
-                `following ${tweets.statuses.length} account(s) by phrase, "${q}"`
+                `${screen_name} following ${tweets.statuses.length} account(s) by phrase, "${q}"`
             )
 
             // sync the user's follows (accounts the user is following)
@@ -65,7 +65,7 @@ export default async (req, res) => {
                                 }
                             )
                             console.log(
-                                `followed ${i + 1}/${tweets.statuses.length}`
+                                `${screen_name} followed ${i + 1}/${tweets.statuses.length}`
                             )
                             following.add(tweets.statuses[i].user.id_str)
                         }
@@ -77,7 +77,7 @@ export default async (req, res) => {
                     if (i < tweets.statuses.length) {
                         myLoop()
                     } else {
-                        console.log('finished following')
+                        console.log(`${screen_name} finished following`)
                     }
                 }, Math.floor(Math.random() * (60 - 10 + 1) + 10) * 1000)
             }
