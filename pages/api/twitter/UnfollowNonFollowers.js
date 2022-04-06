@@ -5,7 +5,7 @@ export default async (req, res) => {
     const session = await getSession({ req })
     
     if (session) {
-        const { oauth_token, oauth_token_secret, providerAccountId } = session
+        const { oauth_token, oauth_token_secret, providerAccountId, screen_name } = session
 
         // auth setup
         const client = new Twitter({
@@ -54,7 +54,7 @@ export default async (req, res) => {
 
             // list of users to unfollow
             var listToUnfollow = following.filter(x => !followers.includes(x) )
-            console.log(`unfollowing ${listToUnfollow.length} users`)
+            console.log(`${screen_name} unfollowing ${listToUnfollow.length} users`)
 
             // unfollow accounts
             var i = 0
@@ -70,10 +70,10 @@ export default async (req, res) => {
                                 }
                             )
                             console.log(
-                                `unfollowed ${i + 1}/${listToUnfollow.length}`
+                                `${screen_name} unfollowed ${i + 1}/${listToUnfollow.length}`
                             )
                         } else {
-                            console.log('already unfollowed all non-followers')
+                            console.log(`${screen_name} already unfollowed all non-followers`)
                         }
                     } catch (err) {
                         console.log(err.errors)
@@ -83,7 +83,7 @@ export default async (req, res) => {
                     if (i < listToUnfollow.length) {
                         myLoop()
                     } else {
-                        console.log('finished unfollowing')
+                        console.log(`${screen_name} finished unfollowing`)
                     }
                 }, Math.floor(Math.random() * (60 - 10 + 1) + 10) * 1000)
             }

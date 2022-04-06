@@ -5,7 +5,7 @@ export default async (req, res) => {
     const session = await getSession({ req })
     
     if (session) {
-        const { oauth_token, oauth_token_secret, providerAccountId } = session
+        const { oauth_token, oauth_token_secret, providerAccountId, screen_name } = session
 
         // auth setup
         const client = new Twitter({
@@ -33,7 +33,7 @@ export default async (req, res) => {
                 following.push(followingStatus.ids)
                 next_cursor = followingStatus.next_cursor
             }
-            console.log(`unmuting all users (${following.length})`)
+            console.log(`${screen_name} unmuting all users (${following.length})`)
 
             // unmute accounts
             var i = 0
@@ -49,10 +49,10 @@ export default async (req, res) => {
                                 }
                             )
                             console.log(
-                                `unmuted ${i + 1}/${following.length}`
+                                `${screen_name} unmuted ${i + 1}/${following.length}`
                             )
                         } else {
-                            console.log('not following any accounts')
+                            console.log(`${screen_name} not following any accounts`)
                         }
                     } catch (err) {
                         console.log(err.errors)
@@ -62,7 +62,7 @@ export default async (req, res) => {
                     if (i < following.length) {
                         myLoop()
                     } else {
-                        console.log('finished unmuting')
+                        console.log(`${screen_name} finished unmuting`)
                     }
                 }, Math.floor(Math.random() * (60 - 10 + 1) + 10) * 1000)
             }

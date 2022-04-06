@@ -6,7 +6,7 @@ export default async (req, res) => {
     const { q, count } = req.body
 
     if (session) {
-        const { oauth_token, oauth_token_secret, providerAccountId } = session
+        const { oauth_token, oauth_token_secret, providerAccountId, screen_name } = session
 
         // auth setup
         const client = new Twitter({

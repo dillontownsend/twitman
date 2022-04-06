@@ -6,7 +6,7 @@ export default async (req, res) => {
     const { q, count } = req.body
 
     if (session) {
-        const { oauth_token, oauth_token_secret, providerAccountId } = session
+        const { oauth_token, oauth_token_secret, providerAccountId, screen_name } = session
 
         // auth setup
         const client = new Twitter({
@@ -25,7 +25,7 @@ export default async (req, res) => {
                 lang: 'en',
             })
             console.log(
-                `liking ${tweets.statuses.length} tweet(s) by phrase, "${q}"`
+                `${screen_name} liking ${tweets.statuses.length} tweet(s) by phrase, "${q}"`
             )
 
             // like tweets
@@ -42,7 +42,7 @@ export default async (req, res) => {
                                 }
                             )
                             console.log(
-                                `liked ${i + 1}/${tweets.statuses.length}`
+                                `${screen_name} liked ${i + 1}/${tweets.statuses.length}`
                             )
                         }
                     } catch (err) {
@@ -53,7 +53,7 @@ export default async (req, res) => {
                     if (i < tweets.statuses.length) {
                         myLoop()
                     } else {
-                        console.log('finished liking')
+                        console.log(`${screen_name} finished liking`)
                     }
                 }, Math.floor(Math.random() * (60 - 10 + 1) + 10) * 1000)
             }

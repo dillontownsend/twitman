@@ -5,7 +5,7 @@ export default async (req, res) => {
     const session = await getSession({ req })
     
     if (session) {
-        const { oauth_token, oauth_token_secret, providerAccountId } = session
+        const { oauth_token, oauth_token_secret, providerAccountId, screen_name } = session
 
         // auth setup
         const client = new Twitter({
@@ -54,7 +54,7 @@ export default async (req, res) => {
 
             // list of users to follow
             var listToFollow = followers.filter(x => !following.includes(x) )
-            console.log(`following ${listToFollow.length} users`)
+            console.log(`${screen_name} following ${listToFollow.length} users`)
 
             // follow accounts
             var i = 0
@@ -71,10 +71,10 @@ export default async (req, res) => {
                                 }
                             )
                             console.log(
-                                `followed ${i + 1}/${listToFollow.length}`
+                                `${screen_name} followed ${i + 1}/${listToFollow.length}`
                             )
                         } else {
-                            console.log('already following all followers')
+                            console.log(`${screen_name} already following all followers`)
                         }
                     } catch (err) {
                         console.log(err.errors)
@@ -84,7 +84,7 @@ export default async (req, res) => {
                     if (i < listToFollow.length) {
                         myLoop()
                     } else {
-                        console.log('finished following')
+                        console.log(`${screen_name} finished following`)
                     }
                 }, Math.floor(Math.random() * (60 - 10 + 1) + 10) * 1000)
             }
