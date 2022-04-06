@@ -54,7 +54,7 @@ export default async (req, res) => {
                 next_cursor = followersOfUserStatus.next_cursor
             }
             console.log(
-                `following users of ${username}, ${followersOfUser.length}`
+                `${screen_name} following users of ${username}, ${followersOfUser.length}`
             )
 
             // follow users
@@ -77,10 +77,10 @@ export default async (req, res) => {
                                 }
                             )
                             console.log(
-                                `followed ${i + 1}/${followersOfUser.length}`
+                                `${screen_name} followed ${i + 1}/${followersOfUser.length}`
                             )
                         } else {
-                            console.log('already following all users')
+                            console.log(`${screen_name} already following all users`)
                         }
                     } catch (err) {
                         console.log(err.errors)
@@ -90,7 +90,7 @@ export default async (req, res) => {
                     if (i < followersOfUser.length) {
                         myLoop()
                     } else {
-                        console.log('finished following')
+                        console.log(`${screen_name} finished following`)
                     }
                 }, Math.floor(Math.random() * (60 - 10 + 1) + 10) * 1000)
             }
